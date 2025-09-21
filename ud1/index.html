@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a los Lenguajes de Marcas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .presentation-container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #2980b9;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e67e22;
+        }
+
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .evolution-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+
+        .evolution-table th,
+        .evolution-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .evolution-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .evolution-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .nav-button {
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .classification-box {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #3498db;
+        }
+
+        .xml-structure {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>Introducción a los Lenguajes de Marcas</h1>
+            <div class="highlight">
+                <h3>🎯 Objetivos de la presentación:</h3>
+                <ul>
+                    <li>Comprender qué son los lenguajes de marcas</li>
+                    <li>Conocer su evolución histórica</li>
+                    <li>Identificar características y estructura</li>
+                    <li>Explorar los principales lenguajes y dialectos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 2: ¿Qué son los lenguajes de marcas? -->
+        <div class="slide">
+            <h2>¿Qué son los Lenguajes de Marcas?</h2>
+            
+            <div class="highlight">
+                <p><strong>Definición:</strong> Un lenguaje de marcas permite representar información mediante etiquetas que dan estructura, significado y formato a los datos.</p>
+            </div>
+
+            <h3>Características importantes:</h3>
+            <ul>
+                <li><strong>No son lenguajes de programación</strong> - No contienen instrucciones ni acciones directas</li>
+                <li><strong>Organizan información</strong> - Proporcionan estructura uniforme</li>
+                <li><strong>Facilitan procesamiento automático</strong> - Los programas pueden interpretar los datos</li>
+            </ul>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>📊 Orientados a la presentación</h4>
+                    <p>Ejemplo: <strong>HTML</strong><br>
+                    Para mostrar información en pantalla</p>
+                </div>
+                <div class="classification-box">
+                    <h4>💾 Orientados al almacenamiento</h4>
+                    <p>Ejemplo: <strong>XML</strong><br>
+                    Para procesar e intercambiar datos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Ejemplo práctico HTML -->
+        <div class="slide">
+            <h2>Ejemplo Práctico: HTML</h2>
+            
+            <p>Las etiquetas HTML indican al navegador <strong>cómo interpretar y mostrar</strong> el contenido:</p>
+            
+            <div class="code-example">
+&lt;h1&gt;El origen de la vida&lt;/h1&gt;
+            </div>
+            
+            <div class="highlight">
+                <h3>🔍 ¿Qué hace esta etiqueta?</h3>
+                <ul>
+                    <li><strong>&lt;h1&gt;</strong> = Etiqueta de apertura</li>
+                    <li><strong>&lt;/h1&gt;</strong> = Etiqueta de cierre</li>
+                    <li>Indica que es un <strong>encabezado principal</strong></li>
+                    <li>El navegador lo muestra con <strong>tamaño de fuente mayor</strong></li>
+                    <li>Proporciona <strong>información semántica</strong> (significado)</li>
+                </ul>
+            </div>
+            
+            <p><strong>💡 Ejercicio práctico:</strong> Crear una página web y probar la diferencia entre los encabezados &lt;h1&gt; al &lt;h4&gt;</p>
+        </div>
+
+        <!-- Slide 4: Evolución histórica -->
+        <div class="slide">
+            <h2>Evolución de los Lenguajes de Marcas</h2>
+            
+            <table class="evolution-table">
+                <thead>
+                    <tr>
+                        <th>Año</th>
+                        <th>Lenguaje/Hito</th>
+                        <th>Aportación principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1960-1970</td>
+                        <td><strong>GML</strong><br>(IBM)</td>
+                        <td>Primeras etiquetas para estructurar documentos</td>
+                    </tr>
+                    <tr>
+                        <td>1986</td>
+                        <td><strong>SGML</strong><br>(ISO 8879)</td>
+                        <td>Metalenguaje estándar. Base de HTML y XML</td>
+                    </tr>
+                    <tr>
+                        <td>1989-1990</td>
+                        <td><strong>WWW</strong><br>(Tim Berners-Lee)</td>
+                        <td>Tecnología universal para compartir información</td>
+                    </tr>
+                    <tr>
+                        <td>1992</td>
+                        <td><strong>HTML</strong></td>
+                        <td>Lenguaje más usado en la web. Hipertexto</td>
+                    </tr>
+                    <tr>
+                        <td>1999+</td>
+                        <td><strong>XML</strong></td>
+                        <td>Metalenguaje flexible para intercambio de datos</td>
+                    </tr>
+                    <tr>
+                        <td>Actualidad</td>
+                        <td><strong>HTML5</strong></td>
+                        <td>Versión moderna adaptada a multimedia y semántica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 5: Estructura XML -->
+        <div class="slide">
+            <h2>Estructura de los Lenguajes de Marcas</h2>
+            
+            <h3>📋 Reglas fundamentales (XML):</h3>
+            <div class="xml-structure">
+                <ul>
+                    <li>Etiqueta de apertura: <code>&lt;nombre&gt;</code></li>
+                    <li>Etiqueta de cierre: <code>&lt;/nombre&gt;</code></li>
+                    <li>El contenido puede ser texto u otros elementos</li>
+                    <li>Solo existe <strong>un elemento raíz</strong></li>
+                    <li>Los atributos van entrecomillados: <code>atributo="valor"</code></li>
+                    <li>Formato: <strong>texto plano</strong></li>
+                </ul>
+            </div>
+
+            <h3>🎮 Ejemplo: videojuegos.xml</h3>
+            <div class="code-example">
+&lt;videojuegos&gt;
+    &lt;videojuego id="vg1"&gt;
+        &lt;titulo&gt;Videojuego multiplataforma&lt;/titulo&gt;
+        &lt;desarrollador&gt;Estudio XYZ&lt;/desarrollador&gt;
+        &lt;plataforma&gt;PC, PS5, Xbox&lt;/plataforma&gt;
+    &lt;/videojuego&gt;
+&lt;/videojuegos&gt;
+            </div>
+        </div>
+
+        <!-- Slide 6: Características fundamentales -->
+        <div class="slide">
+            <h2>Características Fundamentales</h2>
+            
+            <div class="highlight">
+                <h3>✅ Los lenguajes de marcas deben ser:</h3>
+            </div>
+            
+            <ul>
+                <li><strong>🔄 Independientes:</strong> No dependen de plataforma hardware ni software específico</li>
+                <li><strong>📝 Texto plano:</strong> Almacenados como caracteres de texto simples</li>
+                <li><strong>🔧 Flexibles:</strong> Utilizables en diferentes contextos y aplicaciones</li>
+                <li><strong>🤝 Compatibles:</strong> Las marcas y el contenido están en el mismo documento</li>
+                <li><strong>⚡ Fáciles de procesar:</strong> Diseñados para procesamiento automático sencillo</li>
+            </ul>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>🔍 HTML vs XML</h4>
+                    <p><strong>HTML:</strong> Etiquetas predefinidas<br>
+                    <strong>XML:</strong> El autor define las etiquetas</p>
+                </div>
+                <div class="classification-box">
+                    <h4>🎯 Flexibilidad</h4>
+                    <p>XML es un <strong>metalenguaje</strong><br>
+                    Permite crear lenguajes específicos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: ¿Qué es un dialecto? -->
+        <div class="slide">
+            <h2>¿Qué es un Dialecto?</h2>
+            
+            <div class="highlight">
+                <h3>📖 Definición de Dialecto:</h3>
+                <p>Un <strong>dialecto</strong> es un lenguaje de marcas específico que se deriva de un metalenguaje (como XML o SGML). Es una variante especializada para un dominio o aplicación particular.</p>
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>🏗️ Metalenguajes</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>SGML</strong> - Define reglas generales</li>
+                        <li><strong>XML</strong> - Metalenguaje simplificado</li>
+                    </ul>
+                    <p>Establecen las <strong>reglas</strong> para crear lenguajes específicos</p>
+                </div>
+                <div class="classification-box">
+                    <h4>🎯 Dialectos (Lenguajes específicos)</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>HTML</strong> - Derivado de SGML</li>
+                        <li><strong>SVG</strong> - Dialecto de XML</li>
+                        <li><strong>MathML</strong> - Dialecto de XML</li>
+                        <li><strong>XHTML</strong> - Dialecto de XML</li>
+                    </ul>
+                    <p>Implementan las reglas para <strong>casos específicos</strong></p>
+                </div>
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔗 Relación Metalenguaje → Dialecto:</h4>
+                <p><strong>XML</strong> (define estructura general) → <strong>SVG</strong> (gráficos vectoriales específicos)</p>
+                <p><strong>SGML</strong> (estándar general) → <strong>HTML</strong> (páginas web específicas)</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Lenguajes y dialectos comunes -->
+        <div class="slide">
+            <h2>Lenguajes y Dialectos Más Comunes</h2>
+            
+            <table class="evolution-table">
+                <thead>
+                    <tr>
+                        <th>Lenguaje</th>
+                        <th>Tipo</th>
+                        <th>Año</th>
+                        <th>Objetivo principal</th>
+                        <th>Deriva de</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SGML</strong></td>
+                        <td>Metalenguaje</td>
+                        <td>1986</td>
+                        <td>Definir otros lenguajes</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HTML</strong></td>
+                        <td>Dialecto</td>
+                        <td>1992</td>
+                        <td>Páginas web</td>
+                        <td>SGML</td>
+                    </tr>
+                    <tr>
+                        <td><strong>XML</strong></td>
+                        <td>Metalenguaje</td>
+                        <td>1998</td>
+                        <td>Intercambio de datos</td>
+                        <td>SGML (simplificado)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>XHTML</strong></td>
+                        <td>Dialecto</td>
+                        <td>2000</td>
+                        <td>HTML estricto</td>
+                        <td>XML</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SVG</strong></td>
+                        <td>Dialecto</td>
+                        <td>1999</td>
+                        <td>Gráficos vectoriales</td>
+                        <td>XML</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MathML</strong></td>
+                        <td>Dialecto</td>
+                        <td>1998</td>
+                        <td>Notaciones matemáticas</td>
+                        <td>XML</td>
+                    </tr>
+                    <tr>
+                        <td><strong>JSON</strong></td>
+                        <td>Formato independiente</td>
+                        <td>2000s</td>
+                        <td>Intercambio ligero de datos</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 9: Ejemplos de ficheros HTML -->
+        <div class="slide">
+            <h2>Ejemplo: Fichero HTML</h2>
+            
+            <div class="highlight">
+                <h3>📄 ejemplo.html</h3>
+                <p>HTML se usa para crear páginas web con estructura, contenido y enlaces</p>
+            </div>
+
+            <div class="code-example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Primera Página Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenido a mi sitio web&lt;/h1&gt;
+    &lt;h2&gt;Sobre mí&lt;/h2&gt;
+    &lt;p&gt;Soy un &lt;em&gt;desarrollador web&lt;/em&gt; apasionado por 
+       los &lt;strong&gt;lenguajes de marcas&lt;/strong&gt;.&lt;/p&gt;
+    
+    &lt;h3&gt;Mis lenguajes favoritos:&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;HTML5&lt;/li&gt;
+        &lt;li&gt;CSS3&lt;/li&gt;
+        &lt;li&gt;JavaScript&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Visita mi &lt;a href="https://github.com"&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔍 Características del HTML:</h4>
+                <ul>
+                    <li><strong>Etiquetas semánticas:</strong> &lt;h1&gt;, &lt;p&gt;, &lt;em&gt;, &lt;strong&gt;</li>
+                    <li><strong>Estructura jerárquica:</strong> head, body, listas</li>
+                    <li><strong>Enlaces:</strong> &lt;a href="..."&gt; para navegación</li>
+                    <li><strong>Metadatos:</strong> charset, title para configuración</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Ejemplos de ficheros XML -->
+        <div class="slide">
+            <h2>Ejemplo: Fichero XML</h2>
+            
+            <div class="highlight">
+                <h3>📄 biblioteca.xml</h3>
+                <p>XML se usa para almacenar e intercambiar datos estructurados</p>
+            </div>
+
+            <div class="code-example">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;biblioteca&gt;
+    &lt;libro id="libro1" genero="ficcion"&gt;
+        &lt;titulo&gt;El Quijote&lt;/titulo&gt;
+        &lt;autor&gt;
+            &lt;nombre&gt;Miguel&lt;/nombre&gt;
+            &lt;apellidos&gt;de Cervantes&lt;/apellidos&gt;
+        &lt;/autor&gt;
+        &lt;año_publicacion&gt;1605&lt;/año_publicacion&gt;
+        &lt;disponible&gt;true&lt;/disponible&gt;
+    &lt;/libro&gt;
+    
+    &lt;libro id="libro2" genero="tecnico"&gt;
+        &lt;titulo&gt;Lenguajes de Marcas&lt;/titulo&gt;
+        &lt;autor&gt;
+            &lt;nombre&gt;Ana&lt;/nombre&gt;
+            &lt;apellidos&gt;García López&lt;/apellidos&gt;
+        &lt;/autor&gt;
+        &lt;año_publicacion&gt;2023&lt;/año_publicacion&gt;
+        &lt;disponible&gt;false&lt;/disponible&gt;
+    &lt;/libro&gt;
+&lt;/biblioteca&gt;
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔍 Características del XML:</h4>
+                <ul>
+                    <li><strong>Declaración XML:</strong> Versión y codificación</li>
+                    <li><strong>Etiquetas personalizadas:</strong> biblioteca, libro, autor</li>
+                    <li><strong>Atributos:</strong> id="libro1", genero="ficcion"</li>
+                    <li><strong>Anidación:</strong> Estructura jerárquica clara</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 11: Ejemplos de dialectos XML -->
+        <div class="slide">
+            <h2>Ejemplos: Dialectos de XML</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>🎨 SVG - Gráficos Vectoriales</h3>
+                    <div class="code-example" style="font-size: 0.8em;">
+&lt;?xml version="1.0"?&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" 
+     width="200" height="200"&gt;
+     
+  &lt;circle cx="100" cy="100" r="80" 
+          fill="blue" stroke="red" 
+          stroke-width="3"/&gt;
+          
+  &lt;text x="100" y="110" 
+        text-anchor="middle" 
+        fill="white"&gt;
+    SVG
+  &lt;/text&gt;
+&lt;/svg&gt;
+                    </div>
+                </div>
+                <div>
+                    <h3>🧮 MathML - Matemáticas</h3>
+                    <div class="code-example" style="font-size: 0.8em;">
+&lt;?xml version="1.0"?&gt;
+&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  
+  &lt;mrow&gt;
+    &lt;mi&gt;x&lt;/mi&gt;
+    &lt;mo&gt;=&lt;/mo&gt;
+    &lt;mfrac&gt;
+      &lt;mrow&gt;
+        &lt;mo&gt;-&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;
+        &lt;mo&gt;±&lt;/mo&gt;
+        &lt;msqrt&gt;
+          &lt;mrow&gt;
+            &lt;msup&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+            &lt;mo&gt;-&lt;/mo&gt;
+            &lt;mn&gt;4&lt;/mn&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;
+          &lt;/mrow&gt;
+        &lt;/msqrt&gt;
+      &lt;/mrow&gt;
+      &lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mrow&gt;
+    &lt;/mfrac&gt;
+  &lt;/mrow&gt;
+&lt;/math&gt;
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🔑 Características de los dialectos:</h3>
+                <ul>
+                    <li><strong>SVG:</strong> Etiquetas específicas para gráficos (circle, text, path)</li>
+                    <li><strong>MathML:</strong> Elementos matemáticos (mfrac, msqrt, msup)</li>
+                    <li><strong>Namespace:</strong> xmlns define el vocabulario específico</li>
+                    <li><strong>Especialización:</strong> Cada dialecto optimizado para su dominio</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 12: Ejemplo JSON -->
+        <div class="slide">
+            <h2>Ejemplo: JSON - Formato Independiente</h2>
+            
+            <div class="highlight">
+                <h3>📄 productos.json</h3>
+                <p><strong>JSON no es un dialecto</strong> - es un formato independiente para intercambio de datos, alternativa ligera a XML</p>
+            </div>
+
+            <div class="code-example">
+{
+  "tienda": {
+    "nombre": "TechStore",
+    "ubicacion": "Madrid, España",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Laptop Gaming",
+        "precio": 1299.99,
+        "categoria": "informatica",
+        "especificaciones": {
+          "ram": "16GB",
+          "procesador": "Intel i7",
+          "almacenamiento": "1TB SSD"
+        },
+        "disponible": true,
+        "etiquetas": ["gaming", "portatil", "alto-rendimiento"]
+      },
+      {
+        "id": 2,
+        "nombre": "Smartphone",
+        "precio": 699.50,
+        "categoria": "telefonia",
+        "especificaciones": {
+          "pantalla": "6.1 pulgadas",
+          "camara": "48MP",
+          "bateria": "4000mAh"
+        },
+        "disponible": false,
+        "etiquetas": ["movil", "camara", "5G"]
+      }
+    ]
+  }
+}
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔍 Características del JSON:</h4>
+                <ul>
+                    <li><strong>No usa etiquetas:</strong> Sintaxis basada en llaves {}, corchetes []</li>
+                    <li><strong>Tipos nativos:</strong> string, number, boolean, array, object, null</li>
+                    <li><strong>Más compacto:</strong> Sin etiquetas de cierre ni redundancia</li>
+                    <li><strong>Origen JavaScript:</strong> Pero usado universalmente</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 13: Comparación práctica -->
+        <div class="slide">
+            <h2>Comparación: Lenguajes de Marcas vs Formatos de Datos</h2>
+            
+            <div class="highlight">
+                <h3>📊 Los mismos datos en diferentes formatos:</h3>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h4>📄 XML - Lenguaje de marcas</h4>
+                    <div class="code-example" style="font-size: 0.8em;">
+&lt;?xml version="1.0"?&gt;
+&lt;persona&gt;
+  &lt;nombre&gt;Juan&lt;/nombre&gt;
+  &lt;edad&gt;25&lt;/edad&gt;
+  &lt;ciudad&gt;Madrid&lt;/ciudad&gt;
+  &lt;aficiones&gt;
+    &lt;aficion&gt;programar&lt;/aficion&gt;
+    &lt;aficion&gt;leer&lt;/aficion&gt;
+  &lt;/aficiones&gt;
+&lt;/persona&gt;
+                    </div>
+                    <p><strong>Ventajas:</strong> Etiquetas semánticas, validación estricta, namespaces</p>
+                </div>
+                <div>
+                    <h4>📱 JSON - Formato de datos</h4>
+                    <div class="code-example" style="font-size: 0.8em;">
+{
+  "persona": {
+    "nombre": "Juan",
+    "edad": 25,
+    "ciudad": "Madrid",
+    "aficiones": [
+      "programar",
+      "leer"
+    ]
+  }
+}
+                    </div>
+                    <p><strong>Ventajas:</strong> Más ligero, fácil de parsear, integración directa con JavaScript</p>
+                </div>
+            </div>
+
+            <div class="xml-structure">
+                <h4>🤔 Diferencias fundamentales:</h4>
+                <ul>
+                    <li><strong>XML:</strong> Lenguaje de marcas con etiquetas semánticas</li>
+                    <li><strong>JSON:</strong> Formato de notación, sin etiquetas de marcado</li>
+                    <li><strong>XML:</strong> Mejor para documentos complejos y validación</li>
+                    <li><strong>JSON:</strong> Ideal para APIs y intercambio ligero de datos</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 14: Conclusiones -->
+        <div class="slide">
+            <h2>Conclusiones</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Puntos clave que recordar:</h3>
+            </div>
+            
+            <ul>
+                <li><strong>Los lenguajes de marcas</strong> son fundamentales para la organización e intercambio de información</li>
+                <li><strong>Los dialectos</strong> son especializaciones de metalenguajes para dominios específicos</li>
+                <li><strong>HTML</strong> es el pilar de la World Wide Web (dialecto de SGML)</li>
+                <li><strong>XML</strong> permite crear lenguajes personalizados (SVG, MathML, XHTML...)</li>
+                <li><strong>JSON</strong> ofrece una alternativa ligera y eficiente para datos</li>
+                <li>Cada formato tiene <strong>ventajas específicas</strong> según el contexto de uso</li>
+            </ul>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>🚀 Futuro</h4>
+                    <p>Los lenguajes de marcas seguirán evolucionando con nuevas tecnologías web (HTML5, XML moderno, JSON avanzado)</p>
+                </div>
+                <div class="classification-box">
+                    <h4>💡 Aprendizaje</h4>
+                    <p>Dominar estos conceptos es clave para el desarrollo web moderno y la integración de sistemas</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>¿Preguntas?</h3>
+                <p>¡Gracias por su atención!</p>
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
+            </span>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex < 0) currentSlideIndex = 0;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = totalSlides - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Inicializar
+        showSlide(0);
+        document.getElementById('totalSlides').textContent = totalSlides;
+    </script>
+</body>
+</html>

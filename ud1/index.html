@@ -197,6 +197,8 @@
                     <li>Conocer su evolución histórica</li>
                     <li>Identificar características y estructura</li>
                     <li>Explorar los principales lenguajes y dialectos</li>
+                    <li>Diferencias entre HTML y XHTML</li>
+                    <li>Codificación</li>
                 </ul>
             </div>
         </div>
@@ -678,7 +680,7 @@
         <!-- Slide 13: Comparación práctica -->
         <div class="slide">
             <h2>Comparación: Lenguajes de Marcas vs Formatos de Datos</h2>
-            
+
             <div class="highlight">
                 <h3>📊 Los mismos datos en diferentes formatos:</h3>
             </div>
@@ -730,32 +732,548 @@
             </div>
         </div>
 
-        <!-- Slide 14: Conclusiones -->
+        <!-- Slide 14: HTML vs XHTML - Introducción -->
+        <div class="slide">
+            <h2>HTML vs XHTML: ¿En qué se diferencian?</h2>
+
+            <div class="highlight">
+                <h3>🔍 Dos enfoques para crear páginas web:</h3>
+                <p>Aunque ambos sirven para crear páginas web, tienen diferencias importantes en cuanto a flexibilidad y rigurosidad</p>
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>🌐 HTML (HyperText Markup Language)</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>Tolerante con errores</strong></li>
+                        <li>Flexible y fácil de usar</li>
+                        <li>Los navegadores interpretan incluso con fallos</li>
+                        <li>Puede generar problemas de compatibilidad</li>
+                        <li>Errores invisibles en maquetación</li>
+                    </ul>
+                </div>
+                <div class="classification-box">
+                    <h4>📏 XHTML (eXtensible HyperText Markup Language)</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>Sintaxis estricta</strong></li>
+                        <li>Evolución de HTML adaptada a XML</li>
+                        <li>Detiene carga si hay errores de sintaxis</li>
+                        <li>Evita ambigüedades</li>
+                        <li>Documentos más coherentes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="xml-structure">
+                <h4>🎯 Punto clave:</h4>
+                <p>XHTML mantiene las mismas posibilidades de diseño que HTML, pero exige cumplir normas más estrictas para garantizar documentos bien formados y fácilmente procesables.</p>
+            </div>
+        </div>
+
+        <!-- Slide 15: HTML vs XHTML - Diferencias técnicas -->
+        <div class="slide">
+            <h2>Diferencias Técnicas: HTML vs XHTML</h2>
+
+            <div class="highlight">
+                <h3>📋 Requisitos de XHTML:</h3>
+            </div>
+
+            <div class="xml-structure">
+                <h4>✅ Reglas obligatorias en XHTML:</h4>
+                <ul>
+                    <li><strong>Todas las etiquetas deben cerrarse correctamente</strong></li>
+                    <li><strong>Las etiquetas deben estar bien anidadas</strong> (sin saltarse el orden de apertura y cierre)</li>
+                    <li><strong>Los atributos deben escribirse siempre con valor explícito</strong></li>
+                    <li><strong>Sintaxis XML estricta</strong> (sensible a mayúsculas/minúsculas)</li>
+                </ul>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h4>❌ HTML - Sintaxis flexible</h4>
+                    <div class="code-example" style="font-size: 0.9em;">
+&lt;!-- HTML permite estos errores --&gt;
+&lt;p&gt;Párrafo sin cerrar
+&lt;br&gt;
+&lt;img src="foto.jpg"&gt;
+&lt;input type="text" checked&gt;
+
+&lt;!-- Mal anidamiento --&gt;
+&lt;p&gt;&lt;strong&gt;Texto&lt;/p&gt;&lt;/strong&gt;
+                    </div>
+                </div>
+                <div>
+                    <h4>✅ XHTML - Sintaxis estricta</h4>
+                    <div class="code-example" style="font-size: 0.9em;">
+&lt;!-- XHTML requiere sintaxis correcta --&gt;
+&lt;p&gt;Párrafo correctamente cerrado&lt;/p&gt;
+&lt;br /&gt;
+&lt;img src="foto.jpg" alt="Foto" /&gt;
+&lt;input type="text" checked="checked" /&gt;
+
+&lt;!-- Anidamiento correcto --&gt;
+&lt;p&gt;&lt;strong&gt;Texto&lt;/strong&gt;&lt;/p&gt;
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h4>⚠️ Comportamiento ante errores:</h4>
+                <ul>
+                    <li><strong>HTML:</strong> El navegador interpreta la página incluso con fallos</li>
+                    <li><strong>XHTML:</strong> Si existe un error de sintaxis, detiene la carga y muestra mensaje de error</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 16: Ejemplo completo XHTML -->
+        <div class="slide">
+            <h2>Ejemplo Completo: Documento XHTML</h2>
+
+            <div class="highlight">
+                <h3>📄 Ejemplo de documento XHTML válido:</h3>
+                <p>Observa la declaración DOCTYPE, el namespace y la sintaxis estricta</p>
+            </div>
+
+            <div class="code-example">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bienvenidos&lt;/h1&gt;
+    &lt;p&gt;Este es un párrafo&lt;/p&gt;
+    &lt;br /&gt;
+    &lt;img src="imagen.jpg" alt="Foto" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔍 Elementos clave del ejemplo:</h4>
+                <ul>
+                    <li><strong>DOCTYPE:</strong> Especifica la versión XHTML 1.0 Strict</li>
+                    <li><strong>Namespace:</strong> xmlns="http://www.w3.org/1999/xhtml"</li>
+                    <li><strong>Etiquetas cerradas:</strong> &lt;br /&gt;, &lt;img ... /&gt;</li>
+                    <li><strong>Atributos completos:</strong> alt="Foto" (siempre con valor)</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <h4>⚠️ IMPORTANTE:</h4>
+                <p>Si se comete un error de sintaxis en este documento, el navegador mostrará un mensaje de error y detendrá la carga, evitando así ambigüedades.</p>
+            </div>
+        </div>
+
+        <!-- Slide 17: Valor actual de XHTML -->
+        <div class="slide">
+            <h2>Valor Actual de XHTML</h2>
+
+            <div class="highlight">
+                <h3>🔄 Evolución hacia HTML5:</h3>
+                <p>Aunque HTML5 ha sustituido a XHTML como estándar actual, conocer XHTML sigue siendo valioso</p>
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>✅ Beneficios de conocer XHTML</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>Código limpio y ordenado</strong></li>
+                        <li>Documentos coherentes</li>
+                        <li>Fácilmente procesables</li>
+                        <li>Más seguros en validación</li>
+                        <li>Buenas prácticas de programación</li>
+                    </ul>
+                </div>
+                <div class="classification-box">
+                    <h4>🎯 Aplicación práctica</h4>
+                    <ul style="text-align: left;">
+                        <li>Comprensión de sintaxis estricta</li>
+                        <li>Importancia de la validación</li>
+                        <li>Estándares de calidad en código</li>
+                        <li>Base para XML y sus dialectos</li>
+                        <li>Fundamentos de estructuras bien formadas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="xml-structure">
+                <h4>💡 Lección aprendida:</h4>
+                <p>Las normas de XHTML nos enseñan la importancia de escribir código <strong>limpio, ordenado y correcto</strong>, principios que siguen siendo fundamentales en el desarrollo web moderno.</p>
+            </div>
+
+            <div class="highlight">
+                <h4>🚀 Legado en HTML5:</h4>
+                <p>Muchas buenas prácticas de XHTML se han incorporado en el desarrollo moderno con HTML5, especialmente en frameworks y herramientas de validación.</p>
+            </div>
+        </div>
+
+        <!-- Slide 18: Codificación de archivos -->
+        <div class="slide">
+            <h2>1.5 Codificación de Archivos</h2>
+
+            <div class="highlight">
+                <h3>📝 ¿Qué son los archivos de texto plano?</h3>
+                <p>Archivos compuestos únicamente por caracteres de texto, a diferencia de los binarios que pueden contener imágenes, videos, audios, programas, etc.</p>
+            </div>
+
+            <div class="xml-structure">
+                <h4>⚠️ Problema histórico:</h4>
+                <p>Incompatibilidad cuando se trabajaba con texto entre diferentes sistemas. Cada sistema usaba su propio código para representar caracteres.</p>
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>🔤 Archivos de Texto</h4>
+                    <ul style="text-align: left;">
+                        <li>Solo caracteres de texto</li>
+                        <li>Legibles directamente</li>
+                        <li>Editables con cualquier editor</li>
+                        <li>Portables entre sistemas</li>
+                        <li>Seguros (no ocultan código)</li>
+                    </ul>
+                </div>
+                <div class="classification-box">
+                    <h4>💻 Archivos Binarios</h4>
+                    <ul style="text-align: left;">
+                        <li>Pueden contener cualquier dato</li>
+                        <li>No legibles directamente</li>
+                        <li>Requieren software específico</li>
+                        <li>Más compactos</li>
+                        <li>Procesamiento más rápido</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h4>🎯 Importancia para lenguajes de marcas:</h4>
+                <p>Todos los lenguajes de marcas (HTML, XML, JSON) se almacenan en <strong>formato de texto plano</strong>, lo que garantiza su portabilidad y accesibilidad universal.</p>
+            </div>
+        </div>
+
+        <!-- Slide 19: ASCII - Fundamentos -->
+        <div class="slide">
+            <h2>1.5.1 ASCII - American Standard Code</h2>
+
+            <div class="highlight">
+                <h3>📅 Historia del ASCII (1967):</h3>
+                <p>Creado por ANSI (American National Standards Institute) para resolver incompatibilidades entre sistemas. Utiliza el alfabeto inglés con caracteres latinos.</p>
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔢 ASCII Original (7 bits):</h4>
+                <ul>
+                    <li><strong>128 símbolos totales</strong> (2⁷ = 128)</li>
+                    <li>Letras del alfabeto inglés (mayúsculas y minúsculas)</li>
+                    <li>Números (0-9)</li>
+                    <li>Caracteres de puntuación</li>
+                    <li>Símbolos especiales</li>
+                    <li>Símbolos de control (como salto de línea)</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+Ejemplos de códigos ASCII:
+A = 65    a = 97    0 = 48
+B = 66    b = 98    1 = 49
+Z = 90    z = 122   9 = 57
+Espacio = 32    Enter = 13    Tab = 9
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>✅ Ventajas ASCII</h4>
+                    <ul style="text-align: left;">
+                        <li>Estándar universal</li>
+                        <li>Compacto (7 bits)</li>
+                        <li>Compatible con inglés</li>
+                        <li>Base de otros sistemas</li>
+                    </ul>
+                </div>
+                <div class="classification-box">
+                    <h4>❌ Limitaciones ASCII</h4>
+                    <ul style="text-align: left;">
+                        <li>Solo alfabeto inglés</li>
+                        <li>Sin caracteres especiales (ñ, ü, ç)</li>
+                        <li>No sirve para otros idiomas</li>
+                        <li>Necesita extensiones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: ASCII Extendido -->
+        <div class="slide">
+            <h2>ASCII Extendido (8 bits)</h2>
+
+            <div class="highlight">
+                <h3>🔧 Solución para otros idiomas:</h3>
+                <p>Se diseñaron códigos de <strong>8 bits</strong> que añadían 128 símbolos más, manteniendo compatibilidad con ASCII original.</p>
+            </div>
+
+            <div class="xml-structure">
+                <h4>📊 Estructura ASCII Extendido:</h4>
+                <ul>
+                    <li><strong>Primeros 128 símbolos:</strong> Idénticos al ASCII original</li>
+                    <li><strong>Siguientes 128 símbolos:</strong> Caracteres específicos por región</li>
+                    <li><strong>Total:</strong> 256 símbolos (2⁸ = 256)</li>
+                </ul>
+            </div>
+
+            <table class="evolution-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Región</th>
+                        <th>Caracteres especiales incluidos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ISO-8859-1</strong></td>
+                        <td>Europa Occidental</td>
+                        <td>ñ, ü, ç, ß, à, é, ì, ò, etc.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO-8859-2</strong></td>
+                        <td>Europa Central y del Este</td>
+                        <td>Ź, č, ě, ř, ş, ț, etc.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO-8859-3</strong></td>
+                        <td>Europa del Sur</td>
+                        <td>Ġ, Ħ, İ, Ĵ, etc.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO-8859-4</strong></td>
+                        <td>Europa del Norte</td>
+                        <td>ø, å, æ, ð, þ, etc.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight">
+                <h4>🌍 Problema persistente:</h4>
+                <p>Aunque ASCII extendido resolvió problemas regionales, seguía siendo <strong>insuficiente para un mundo global</strong> con múltiples idiomas simultáneos.</p>
+            </div>
+        </div>
+
+        <!-- Slide 21: Unicode - Solución global -->
+        <div class="slide">
+            <h2>1.5.2 Unicode - Estándar Global</h2>
+
+            <div class="highlight">
+                <h3>🌐 Objetivo de Unicode:</h3>
+                <p>Aglutinar en una misma tabla de códigos <strong>todos los caracteres de cualquier lengua del planeta</strong>. Cada carácter ya no ocupa un solo byte.</p>
+            </div>
+
+            <div class="xml-structure">
+                <h4>🔢 Estructura Unicode:</h4>
+                <ul>
+                    <li><strong>Primeros 128:</strong> ASCII original (compatibilidad)</li>
+                    <li><strong>Siguientes 128:</strong> ISO-8859-1 (lenguas europeas occidentales)</li>
+                    <li><strong>Resto:</strong> Todos los idiomas del mundo (chino, árabe, japonés, etc.)</li>
+                    <li><strong>Gestión:</strong> Consorcio Unicode (unicode.org) + ISO</li>
+                </ul>
+            </div>
+
+            <div class="two-column">
+                <div class="classification-box">
+                    <h4>✅ Ventajas Unicode</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>Universal:</strong> Todos los idiomas</li>
+                        <li><strong>Compatible:</strong> Con ASCII y ISO-8859-1</li>
+                        <li><strong>Estándar:</strong> Apoyo industrial masivo</li>
+                        <li><strong>Extensible:</strong> Nuevos símbolos</li>
+                        <li><strong>Semántico:</strong> Cada símbolo tiene significado</li>
+                    </ul>
+                </div>
+                <div class="classification-box">
+                    <h4>⚖️ Consideraciones</h4>
+                    <ul style="text-align: left;">
+                        <li><strong>Tamaño variable:</strong> No siempre 1 byte</li>
+                        <li><strong>Complejidad:</strong> Varios formatos (UTF-8, UTF-16, UTF-32)</li>
+                        <li><strong>Procesamiento:</strong> Más complejo que ASCII</li>
+                        <li><strong>Espacio:</strong> Puede ocupar más memoria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h4>🎯 Resultado:</h4>
+                <p>Unicode es el <strong>estándar definitivo</strong> para texto en la actualidad. Todos los sistemas modernos lo soportan.</p>
+            </div>
+        </div>
+
+        <!-- Slide 22: UTF-8, UTF-16, UTF-32 -->
+        <div class="slide">
+            <h2>Formatos Unicode: UTF-8, UTF-16, UTF-32</h2>
+
+            <div class="highlight">
+                <h3>🔧 Tres formas de codificar Unicode:</h3>
+                <p>Diferentes métodos para almacenar los caracteres Unicode, cada uno con ventajas específicas.</p>
+            </div>
+
+            <table class="evolution-table">
+                <thead>
+                    <tr>
+                        <th>Formato</th>
+                        <th>Bytes por carácter</th>
+                        <th>Ventajas</th>
+                        <th>Uso típico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>UTF-8</strong></td>
+                        <td>1-4 bytes (variable)</td>
+                        <td>Compatible con ASCII, muy extendido</td>
+                        <td><strong>Web, archivos de texto</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>UTF-16</strong></td>
+                        <td>2-4 bytes (variable)</td>
+                        <td>Más simple que UTF-8</td>
+                        <td>Windows internamente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UTF-32</strong></td>
+                        <td>4 bytes (fijo)</td>
+                        <td>Más simple de procesar</td>
+                        <td>Poco usado (desperdicia espacio)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="xml-structure">
+                <h4>📝 Ejemplo práctico UTF-8:</h4>
+                <p><strong>Texto:</strong> 取得cigüeña𐐝</p>
+                <ul>
+                    <li><strong>取得</strong> (chino): 3 bytes cada uno = 6 bytes</li>
+                    <li><strong>c, i, g, e, a</strong> (ASCII): 1 byte cada uno = 5 bytes</li>
+                    <li><strong>ü, ñ</strong> (latinos): 2 bytes cada uno = 4 bytes</li>
+                    <li><strong>𐐝</strong> (persa antiguo): 4 bytes</li>
+                    <li><strong>Total:</strong> 19 bytes</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <h4>🏆 UTF-8 - El ganador:</h4>
+                <p>Aunque es más complejo de procesar, <strong>UTF-8 es el estándar claro</strong> para codificar texto. Todos los sistemas actuales tienen capacidad para codificar de esta forma.</p>
+            </div>
+        </div>
+
+        <!-- Slide 23: Comparativa Archivos Binarios vs Texto -->
+        <div class="slide">
+            <h2>1.5.3 Comparativa: Archivos Binarios vs Texto</h2>
+
+            <table class="evolution-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Archivos Binarios</th>
+                        <th>Archivos de Texto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Espacio de almacenamiento</strong></td>
+                        <td>Menos espacio (codificación directa en binario)</td>
+                        <td>Más espacio (cada carácter como símbolo textual)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Velocidad de procesamiento</strong></td>
+                        <td>Más rápidos (próximos al lenguaje máquina)</td>
+                        <td>Manipulación más lenta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acceso a los datos</strong></td>
+                        <td>Acceso directo (lectura/escritura rápida)</td>
+                        <td>Acceso secuencial, más lento</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interpretación</strong></td>
+                        <td>No interpretables por personas</td>
+                        <td><strong>Contenido legible directamente</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Seguridad/cifrado</strong></td>
+                        <td>Ideales para contenido cifrado</td>
+                        <td>Se pueden cifrar, pero menos eficiente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Portabilidad</strong></td>
+                        <td>Menos portables sin software adecuado</td>
+                        <td><strong>Ideales para exportar a cualquier dispositivo</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Edición</strong></td>
+                        <td>Requieren software específico</td>
+                        <td><strong>Editables con cualquier editor de texto</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Riesgo de virus</strong></td>
+                        <td>Más susceptibles de ocultar código malicioso</td>
+                        <td><strong>Generalmente seguros</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight">
+                <h4>🎯 Para lenguajes de marcas:</h4>
+                <p><strong>Los archivos de texto son ideales</strong> porque priorizan <strong>legibilidad</strong>, <strong>portabilidad</strong> y <strong>seguridad</strong> sobre velocidad de procesamiento.</p>
+            </div>
+        </div>
+
+        <!-- Slide 24: Conclusiones -->
         <div class="slide">
             <h2>Conclusiones</h2>
-            
+
             <div class="highlight">
                 <h3>🎯 Puntos clave que recordar:</h3>
             </div>
-            
+
             <ul>
                 <li><strong>Los lenguajes de marcas</strong> son fundamentales para la organización e intercambio de información</li>
                 <li><strong>Los dialectos</strong> son especializaciones de metalenguajes para dominios específicos</li>
                 <li><strong>HTML</strong> es el pilar de la World Wide Web (dialecto de SGML)</li>
                 <li><strong>XML</strong> permite crear lenguajes personalizados (SVG, MathML, XHTML...)</li>
                 <li><strong>JSON</strong> ofrece una alternativa ligera y eficiente para datos</li>
+                <li><strong>HTML vs XHTML</strong> nos enseña la diferencia entre flexibilidad y rigurosidad</li>
                 <li>Cada formato tiene <strong>ventajas específicas</strong> según el contexto de uso</li>
             </ul>
 
             <div class="two-column">
                 <div class="classification-box">
-                    <h4>🚀 Futuro</h4>
-                    <p>Los lenguajes de marcas seguirán evolucionando con nuevas tecnologías web (HTML5, XML moderno, JSON avanzado)</p>
+                    <h4>✅ Lecciones aprendidas</h4>
+                    <ul style="text-align: left;">
+                        <li>Importancia de la <strong>sintaxis correcta</strong></li>
+                        <li>Valor de la <strong>validación estricta</strong></li>
+                        <li>Beneficios de <strong>código limpio</strong></li>
+                        <li>Evolución hacia <strong>estándares modernos</strong></li>
+                    </ul>
                 </div>
                 <div class="classification-box">
-                    <h4>💡 Aprendizaje</h4>
-                    <p>Dominar estos conceptos es clave para el desarrollo web moderno y la integración de sistemas</p>
+                    <h4>🚀 Aplicación práctica</h4>
+                    <ul style="text-align: left;">
+                        <li>Desarrollo web <strong>profesional</strong></li>
+                        <li>Integración de <strong>sistemas</strong></li>
+                        <li>Intercambio de <strong>datos</strong></li>
+                        <li>Mantenimiento de <strong>código</strong></li>
+                    </ul>
                 </div>
+            </div>
+
+            <div class="xml-structure">
+                <h4>💡 Reflexión final:</h4>
+                <p>Los lenguajes de marcas han evolucionado desde <strong>GML (1960s)</strong> hasta <strong>HTML5 y JSON modernos</strong>. Cada avance nos ha enseñado la importancia de equilibrar <strong>flexibilidad</strong> con <strong>estándares</strong>, y <strong>simplicidad</strong> con <strong>potencia</strong>.</p>
+            </div>
+
+            <div class="highlight">
+                <h4>🔮 Futuro de los lenguajes de marcas:</h4>
+                <p>Continuarán adaptándose a nuevas necesidades: <strong>web semántica</strong>, <strong>IoT</strong>, <strong>inteligencia artificial</strong> y <strong>realidad aumentada</strong>, manteniendo siempre los principios fundamentales de estructura, semántica y procesabilidad.</p>
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
@@ -768,7 +1286,7 @@
         <div class="navigation">
             <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
             <span class="slide-counter">
-                <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
+                <span id="currentSlide">1</span> / <span id="totalSlides">24</span>
             </span>
             <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
         </div>
